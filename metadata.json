@@ -1,0 +1,11 @@
+{
+	"id": "loss",
+	"name": "Lack of Shop Space",
+	"author": ["Evgast, ig"],
+	"description": "Prolly messy",
+	"prefix": "loss",
+	"main_file": "main.lua",
+	"priority": -10,
+	"badge_colour": "#8d1a91",
+	"version": "0.0.0"
+}
