@@ -11,18 +11,25 @@ pattern = '''
 '''
 position = "after"
 payload = '''
+    local shop_buttons
     local low_node = nil
     local mid_node = nil
     local high_node = nil
+    local low_buttons = {}
+    local mid_buttons = {}
+    local high_buttons = {}
+    LOSS.merge_tables(G.low_buttons, low_buttons)
+    LOSS.merge_tables(G.mid_buttons, mid_buttons)
+    LOSS.merge_tables(G.high_buttons, high_buttons)
     local shop_buttons
     if next(G.low_buttons) then
-        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = G.low_buttons}
+        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = low_buttons}
     end
     if next(G.mid_buttons) then
-        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = G.mid_buttons}
+        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = mid_buttons}
     end
     if next(G.high_buttons) then
-        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = G.high_buttons}
+        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = high_buttons}
     end
     local shop_scrollbox = SMODS.UIScrollBox({
             content = {
