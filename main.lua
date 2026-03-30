@@ -3,6 +3,8 @@ G.low_buttons = {}
 G.mid_buttons = {}
 G.high_buttons = {}
 
+LOSS = SMODS.current_mod
+
 SMODS.current_mod.description_loc_vars = function()
     return {background_colour = G.C.CLEAR, text_colour = G.C.WHITE, scale = 1.2, shadow = true}
 end
