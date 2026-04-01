@@ -23,13 +23,13 @@ payload = '''
     LOSS.merge_tables(G.high_buttons, high_buttons)
     local shop_buttons
     if next(G.low_buttons) then
-        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = low_buttons}
+        low_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = low_buttons}
     end
     if next(G.mid_buttons) then
         mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = mid_buttons}
     end
     if next(G.high_buttons) then
-        mid_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = high_buttons}
+        high_node = {n=G.UIT.R,config={G.C.CLEAR, align = "cm"}, nodes = high_buttons}
     end
     local shop_scrollbox = SMODS.UIScrollBox({
             content = {
@@ -112,6 +112,21 @@ pattern = '''
 '''
 position = "at"
 payload = '''
+    {n = G.UIT.C,
+		config = { align = "cm" },
+		nodes = {
+			SMODS.GUI.scrollbar({
+			h = 2.98,
+			w = 0.3,
+			max = 1,
+			min = 0,
+			bg_colour = G.C.L_BLACK,
+			scroll_collision_obj = shop_scrollbox,
+			knob_h = 0.6,
+            knob_colour = G.C.GREEN,
+			scroll_mult = 1.2,
+		}),
+    }},
     shop_buttons,
 '''
 match_indent = true
